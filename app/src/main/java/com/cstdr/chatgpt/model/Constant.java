@@ -18,7 +18,7 @@ public class Constant {
      */
 
 //    public static final String URL = "https://api.pawan.krd/v1/chat/completions";
-    public static final String OPENAI_URL = "https://api.openai.com/v1/chat/completions";
+    public static final String OPENAI_URL = "https://api.chatanywhere.com.cn/v1/chat/completions";
     public static final String PROXY_HOST_NAME = "61.171.90.153";
     public static final int PROXY_PORT = 16816;
     public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
