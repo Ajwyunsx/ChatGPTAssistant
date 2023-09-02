@@ -1,0 +1,37 @@
+name: Android Build
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup JDK
+      uses: actions/setup-java@v1
+      with:
+        java-version: '11'
+
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v2
+      with:
+        sdk-version: '31.0.0'
+        ndk-version: '23.0.7599858'
+
+    - name: Build Android App
+      run: |
+        chmod +x ./gradlew
+        ./gradlew assembleDebug
+
+    - name: Upload APK
+      uses: actions/upload-artifact@v2
+      with:
+        name: app-debug.apk
+        path: app/build/outputs/apk/debug/app-debug.apk
